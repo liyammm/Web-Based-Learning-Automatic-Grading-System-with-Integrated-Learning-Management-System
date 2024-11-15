@@ -14,16 +14,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = $_POST['role'];
 
     // Authenticate user
-    $userId = $user->login($username, $password, $role); // Store the return value
+    $userId = $user->login($username, $password, $role); 
 
     if ($userId) {
-        // Start session and store user information
+        
         session_start();
         $_SESSION['username'] = $username;
         $_SESSION['role'] = $role;
-        $_SESSION['user_id'] = $userId; // Store the user ID in session
+        $_SESSION['user_id'] = $userId; 
 
-        // Redirect based on the role
+        
         if ($role === 'teacher') {
             header('Location: ../Teacher Dash/index.php');
             exit();
@@ -52,28 +52,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <div class="border-form">
-            <h3>Log In</h3>
+        <div class="title">
+            <h1>Learning Management System</h1>
+        </div>
             <div class="form">
                 <form action="login.php" method="POST">
-                    <label for="">Username: <input type="text" name="username" required></label>
-                    <label for="">Password: <input type="password" name="password" required></label>
-                    <label for="">Role:</label>
-                    <select name="role" required>
+                    <label for="username">Username:<input type="text" name="username" id="username" required></label>
+                    <label for="password">Password:<input type="password" name="password" id="password" required></label>
+                    <label for="role">Role:<select name="role" id="role" required>
                         <option value="teacher">Teacher</option>
                         <option value="student">Student</option>
-                    </select>
+                    </select></label>
                     <input type="submit" value="Log In">
                 </form>
-                <p><a href="register.php">Don't have an account yet?</a></p>
+                <p><a href="forgot.php">Forgot Password?</a></p>
+                <p><a href="register.php">Don't have an account yet?</a></p> 
                 <?php if (!empty($error_msg)) {
                     echo $error_msg;
                 } ?>
             </div>
         </div>
 
-        <div class="title">
-            <h1>Learning Management System</h1>
-        </div>
+        
     </div>
 </body>
 
