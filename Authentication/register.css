@@ -1,0 +1,141 @@
+body{
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    justify-content: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url(https://i.pinimg.com/originals/26/e8/a5/26e8a502f115b13670b37990f7fe539b.gif);
+    background-size: cover;
+    
+    
+}
+
+
+
+/* the box below the class registration */
+form { 
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(56, 109, 135, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.634); /*shadow */
+    width: 100%; /* width for the form */
+    text-align: center; 
+    margin-bottom: 10%;
+    max-height: 80vh;
+}
+
+
+h2{
+    text-align: center;
+    margin: 0;
+    color: #ffffff;
+
+
+}
+
+h3{
+    text-align: center;
+    margin: 0;
+    font-size: small;
+    font-weight: normal;
+    color: #ffffff;
+    margin-bottom: 5%;
+
+}
+
+td{
+    text-align: left;
+    padding: 10px;
+    color: #ffffff;
+    opacity: 1;
+}
+
+label{
+    
+    text-align: left;
+    margin: 10px;
+    font-size: medium;
+}
+
+p{
+    color: #ffffff;
+}
+
+a{
+    color: #e2e5fa;
+}
+
+
+.form-group{
+    margin: 10px;
+    display: flex;
+
+}
+
+/* Creates the box on userinput */
+input[type="email"],
+input[type="text"],
+input[type="password"],
+select{
+    background-color: #D4E8F1;
+    font-size: medium;
+    flex: 2;
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #A1C6D8; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    color:#333333;
+}
+
+/* Highlights user input box the user is currently filling up*/
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus{
+        border-color: #89ffeb; /* Change border color on focus */
+        outline: none; /* Remove default outline */
+    }
+    
+
+
+input[type="submit"] {
+    margin-top: 20px;
+    background-color: #21556d; 
+    color: white; 
+    padding: 15px; 
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: medium; 
+    width: 200px;
+    
+}
+
+input[type="submit"]:hover {
+    background-color:#08a1cc; 
+ 
+}
+
+.message {
+    
+margin: 10px;
+padding: 2px;
+margin-bottom: -2px;
+}
+
+.message.success {
+    color: #4dd36d; 
+}
+
+.message.warning {
+    color: #ffd965; 
+
+}
+
+.message.error {
+    color: #ff495b; 
+
+}
+
