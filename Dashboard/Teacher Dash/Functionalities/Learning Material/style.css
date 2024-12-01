@@ -1,0 +1,327 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    max-width: 300px;
+    background-color: #2C3E50;
+    color: #fff;
+    padding: 16px;
+    position: relative; /* Ensure child elements like .user-settings align relative to this */
+}
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.create-course a {
+    display: inline-block;
+    color: #fff;
+    background-color: #3498db;
+    padding: 8px; 
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    width: 100%;
+}
+.sidebar nav ul {
+    list-style-type: none;
+    margin-top: 32px;
+}
+.sidebar nav ul li {
+    margin: 24px 0; 
+}
+.sidebar nav ul li a {
+    margin-top: 800px; 
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 24px;
+}
+.sidebar nav ul li a:hover {
+    color: #3498db;
+    transition: 0.3s;
+}
+.user-settings {
+    position: absolute;
+    bottom: 20px; /* Position the link 20px from the bottom of the sidebar */
+    left: 50%; /* Center horizontally within the sidebar */
+    transform: translateX(-50%); /* Exact center alignment */
+}
+
+/* Style the link */
+.user-settings a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4CAF50; /* Green background */
+    color: white;  /* White text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;  /* Remove any border */
+    box-sizing: border-box;  /* Include padding and border in element's total width/height */
+}
+
+.user-settings a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db;
+    padding: 16px;
+    border-radius: 8px;
+    color: #fff;
+}
+.header h1 {
+    font-size: 24px; 
+    margin: 0;
+}
+.header .logout {
+    color: #fff;
+    text-decoration: none;
+    background-color: #2cda49;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.header .logout:hover {
+    background-color: #c0392b;
+    transition: 0.5s;
+}
+.section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px; 
+    margin-top: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 32px;
+    background-color: #ecf0f1;
+}
+
+/* Back Button near Course Name */
+.back-button {
+    display: inline-block;
+    font-size: 30px; /* Increase font size */
+    padding: 2px 10px; /* Increase padding for a larger button */
+    background-color: #007bff; /* Button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.back-button:hover {
+    background-color: #0056b3; /* Hover effect */
+}
+
+
+/* Course Management Links*/
+.course-management-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.course-management-links a,
+.course-management-links button {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #3498db;
+    text-decoration: none;
+    border: none; /* Ensures consistency for buttons */
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer; /* Adds pointer for buttons */
+    position: relative; /* Ensures transform works consistently */
+}
+
+.course-management-links a:hover,
+.course-management-links button:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+.course-management-links a:active,
+.course-management-links button:active {
+    background-color: #1a6ca5;
+    transform: translateY(0);
+}
+
+.material-list ul {
+    list-style: none;
+    padding: 0;
+}
+.material-list li {
+    padding: 15px;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.material-list li p {
+    margin: 5px 0;
+}
+
+.material-list li a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.material-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Delete Button */
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+/* File Upload Form */
+.upload-section {
+    margin-top: 20px;
+}
+
+.upload-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.upload-section .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.upload-section .form-group label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.upload-section .form-group input,
+.upload-section .form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.upload-section .form-group button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-section .form-group button:hover {
+    background-color: #2980b9;
+}
+
+/* Success and Error Messages */
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+
+
+/* Enhanced Message Styling */
+.message {
+    padding: 12px;
+    background-color: #e0f7fa; /* Light blue for visibility */
+    border: 1px solid #3498db;
+    color: #006064;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+
+.message {
+    padding: 10px;
+    background-color: #f0f8ff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        max-width: none;
+        padding: 16px; 
+
+        .main-content {
+            padding: 16px;
+        }
+    }
+}
