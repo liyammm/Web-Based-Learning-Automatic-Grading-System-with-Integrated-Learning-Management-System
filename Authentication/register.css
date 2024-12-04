@@ -1,0 +1,119 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7; /* Light background for better contrast */
+}
+
+/* Styling for rounded corners on the container */
+.row {
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+/* Form input styling for larger inputs */
+.form-control {
+    font-size: 16px;
+    border-radius: 5px; /* Adding rounded corners to inputs */
+}
+
+.form-group {
+    margin-bottom: 20px; 
+}
+
+.center-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: #449DD1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+::placeholder {
+    font-size: 16px;
+}
+
+.message{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Success, error, and warning message styles */
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Center align header and form */
+h2, h3 {
+    text-align: center;
+}
+
+/* Make table layout responsive for form labels */
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+td {
+    padding: 10px;
+}
+
+/* Input button styling */
+input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded button */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Adjust spacing for forgot password and sign-up links */
+.text-center p {
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 0 15px; /* Adding some padding to prevent edges from being too close */
+    }
+
+    .row {
+        max-width: 100% !important; /* Allow full-width for smaller screens */
+    }
+
+    .col-md-6 {
+        width: 100%; /* Stacks columns on smaller screens */
+        padding: 10px;
+    }
+
+    /* Adjust the image size on smaller screens */
+    .col-md-6 img {
+        max-width: 200px;
+    }
+}
+
+/* Styling for the select dropdown */
+select.form-control {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+}
