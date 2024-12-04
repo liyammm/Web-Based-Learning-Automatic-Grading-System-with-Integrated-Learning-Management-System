@@ -1,0 +1,346 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    max-width: 300px;
+    background-color: #2C3E50;
+    color: #fff;
+    padding: 16px;
+    position: relative; /* Ensure child elements like .user-settings align relative to this */
+}
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.create-course a {
+    display: inline-block;
+    color: #fff;
+    background-color: #3498db;
+    padding: 8px; 
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    width: 100%;
+}
+.sidebar nav ul {
+    list-style-type: none;
+    margin-top: 32px;
+}
+.sidebar nav ul li {
+    margin: 24px 0; 
+}
+.sidebar nav ul li a {
+    margin-top: 800px; 
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 24px;
+}
+.sidebar nav ul li a:hover {
+    color: #3498db;
+    transition: 0.3s;
+}
+.user-settings {
+    position: absolute;
+    bottom: 20px; /* Position the link 20px from the bottom of the sidebar */
+    left: 50%; /* Center horizontally within the sidebar */
+    transform: translateX(-50%); /* Exact center alignment */
+}
+
+/* Style the link */
+.user-settings a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4CAF50; /* Green background */
+    color: white;  /* White text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;  /* Remove any border */
+    box-sizing: border-box;  /* Include padding and border in element's total width/height */
+}
+
+.user-settings a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db;
+    padding: 16px;
+    border-radius: 8px;
+    color: #fff;
+}
+.header h1 {
+    font-size: 24px; 
+    margin: 0;
+}
+.header .logout {
+    color: #fff;
+    text-decoration: none;
+    background-color: #2cda49;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.header .logout:hover {
+    background-color: #c0392b;
+    transition: 0.5s;
+}
+.section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px; 
+    margin-top: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 32px;
+    background-color: #ecf0f1;
+}
+
+/* Back Button near Course Name */
+.back-button {
+    display: inline-block;
+    font-size: 30px; /* Increase font size */
+    padding: 2px 10px; /* Increase padding for a larger button */
+    background-color: #007bff; /* Button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.back-button:hover {
+    background-color: #0056b3; /* Hover effect */
+}
+
+/* Course Management Links */
+.course-management-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+.course-management-links a,
+.course-management-links button {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #3498db;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+.course-management-links a:hover,
+.course-management-links button:hover {
+    background-color: #2980b9;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="text"],
+form input[type="datetime-local"],
+form textarea,
+form select {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* File Input */
+#file-section {
+    display: none;
+    padding: 10px 0;
+}
+
+#file-section input[type="file"] {
+    font-size: 16px;
+}
+
+/* Course Assignment List */
+.assessment-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.assessment-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.assessment-card:hover {
+    transform: scale(1.05);
+}
+
+.assessment-card h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.assessment-card p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.assessment-card .warning {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.download-link i {
+    margin-right: 5px;
+}
+
+.assessment-actions {
+    margin-top: 15px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.edit-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    opacity: 0.8;
+}
+
+.assessment-actions form {
+    display: inline;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        max-width: none;
+        padding: 16px;
+    }
+    .main-content {
+        padding: 16px;
+    }
+
+    form select {
+        width: 100%; /* Ensure full width on mobile */
+    }
+}
+
+/* Add Styles for the 'Assessment Type' dropdown */
+form select {
+    background-color: #fff; /* Ensure background color is white */
+    border: 1px solid #ccc; /* Ensure border is visible */
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form select:focus {
+    border-color: #3498db; /* Highlight the border color when focused */
+    outline: none; /* Remove default outline */
+}
