@@ -43,10 +43,6 @@ class Users{
     
     }
         
-    public function __destruct(){
-        $this->conn->close();
-    }
-
 
     
     public function login($username, $password, $role){
