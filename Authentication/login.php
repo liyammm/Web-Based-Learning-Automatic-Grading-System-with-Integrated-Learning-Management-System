@@ -79,8 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group">
                     <select name="role" id="role" class="form-control form-control-lg "style="font-size:17px;" required>
-                        <option value="teacher">Teacher</option>
                         <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
                     </select>
                 </div>
 

@@ -122,7 +122,7 @@ function isExpired($dueDate)
                         <?php endif; ?>
                     </div>
                     <br>
-                    <hr><br>
+                    <hr>
 
                     <!-- Assignments Section -->
                     <div class="assignments-section">

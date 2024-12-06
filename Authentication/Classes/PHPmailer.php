@@ -29,7 +29,7 @@ class Mailer {
     }
     
     public function saveResetCode($email, $resetCode) {
-        $expiry = date("Y-m-d H:i:s", strtotime("+1 hour")); // Code expires in 1 hour
+        $expiry = date("Y-m-d H:i:s", strtotime("+5 minute")); // Code expires in 5 minutes
         $stmt = $this->conn->prepare("UPDATE users SET reset_code = ?, reset_expiry = ? WHERE email = ?");
         $stmt->bind_param("sss", $resetCode, $expiry, $email);
         return $stmt->execute(); // Returns true if successful

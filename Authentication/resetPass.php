@@ -57,10 +57,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
             <p class="text-center mt-3">
                 <a href="login.php">Back to Login</a>
-        </div>
-        <?php if (!empty($message)) : ?>
+            </p>
+            <?php if (!empty($message)) : ?>
             <p class="text-danger text-center mt-3"><?php echo htmlspecialchars($message); ?></p>
         <?php endif; ?>
+        </div>
     </div>
 </body>
 
