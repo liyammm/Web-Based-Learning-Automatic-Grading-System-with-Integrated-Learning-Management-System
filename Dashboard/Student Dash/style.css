@@ -202,6 +202,15 @@ body {
     color: #e74c3c;
 }
 
+.expired-notice{
+    color: white;
+    background-color: #c0392b;
+    border-radius: 7px;
+    padding:  5px;
+    font-size: smaller;
+    text-align: center;
+}
+
 
 
 

@@ -166,7 +166,7 @@ function isExpired($dueDate)
                                         <?php if (!$isGraded): ?>
                                             <div class="assignment-actions">
                                                 <?php if (isExpired($assignmentData['due_date'])): ?>
-                                                    <p class="expired-notice">Submission period has ended</p>
+                                                    <br><br><br><br><p class="expired-notice">Submission period has ended</p>
                                                 <?php else: ?>
                                                     <br> <br> <br> <br><a href="Functionalities/Assignments/assignment_submission.php?assignment_id=<?php echo $assignmentData['assignment_id']; ?><?php echo $submission ? '&edit=1' : ''; ?>"
                                                         class="button">
@@ -217,7 +217,7 @@ function isExpired($dueDate)
                                         </div>
                                         <div class="assessment-actions">
                                             <?php if (isExpired($assessmentData['due_date'])): ?>
-                                                <p class="expired-notice">Assessment period has ended</p>
+                                                <br><br><br><br><p class="expired-notice">Assessment period has ended</p>
                                             <?php elseif (!$isCompleted): ?>
                                                 <a href="Functionalities/Assessments/assessment_submission.php?assessment_id=<?php echo $assessmentData['assessment_id']; ?>"
                                                     class="button">Take Assessment</a>
