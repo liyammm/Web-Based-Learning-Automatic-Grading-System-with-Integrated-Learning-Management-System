@@ -20,6 +20,12 @@ class Database{
         return $this->conn;
     }
 
+    public function __destruct() {
+        if ($this->conn) {
+            $this->conn->close();
+        }
+    }
+
 }
 
 ?>
