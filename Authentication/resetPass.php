@@ -26,27 +26,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="forgotPass.css">
+    <title>Reset Password</title>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Reset Password</h1>
-        <h5>A code has been sent to your email account!</h5>
-        <form action="resetPass.php" method="POST">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
-            <label for="reset_code">Reset Code:</label>
-            <input type="text" name="reset_code" id="reset_code" required>
-            <label for="new_password">New Password:</label>
-            <input type="password" name="new_password" id="new_password" required>
-            <button type="submit">Reset</button>
-        </form>
-        <p class="message"><?php echo htmlspecialchars($message); ?></p>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card p-4 shadow-lg" style="max-width: 500px; width: 100%;">
+            <h1 class="text-center mb-4">Reset Password</h1>
+            <p class="text-center text-muted">A code has been sent to your email account!</p>
+            <form action="resetPass.php" method="POST">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="reset_code">Reset Code:</label>
+                    <input type="text" name="reset_code" id="reset_code" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="new_password">New Password:</label>
+                    <input type="password" name="new_password" id="new_password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Reset</button>
+            </form>
+            <p class="text-center mt-3">
+                <a href="login.php">Back to Login</a>
+        </div>
+        <?php if (!empty($message)) : ?>
+            <p class="text-danger text-center mt-3"><?php echo htmlspecialchars($message); ?></p>
+        <?php endif; ?>
     </div>
 </body>
+
 </html>
- 

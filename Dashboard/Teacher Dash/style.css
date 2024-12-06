@@ -1,0 +1,328 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #ecf0f1;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    max-width: 300px;
+    background-color: #2C3E50;
+    color: #fff;
+    padding: 16px;
+    position: relative; /* Ensure child elements like .user-settings align relative to this */
+}
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.create-course a {
+    display: inline-block;
+    color: #fff;
+    background-color: #3498db;
+    padding: 8px; 
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    width: 100%;
+}
+.sidebar nav ul {
+    list-style-type: none;
+    margin-top: 32px;
+}
+.sidebar nav ul li {
+    margin: 24px 0; 
+}
+.sidebar nav ul li a {
+    margin-top: 800px; 
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 24px;
+}
+.sidebar nav ul li a:hover {
+    color: #3498db;
+    transition: 0.3s;
+}
+.user-settings {
+    position: absolute;
+    bottom: 20px; /* Position the link 20px from the bottom of the sidebar */
+    left: 50%; /* Center horizontally within the sidebar */
+    transform: translateX(-50%); /* Exact center alignment */
+}
+
+/* User Settings at Bottom */
+.user-settings {
+    margin-top: auto;
+    text-align: center;
+}
+
+.user-settings a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.user-settings a:hover {
+    background-color: #45a049;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db;
+    padding: 16px;
+    border-radius: 8px;
+    color: #fff;
+}
+.header h1 {
+    font-size: 24px; 
+    margin: 0;
+}
+.header .logout {
+    color: #fff;
+    text-decoration: none;
+    background-color: #2cda49;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.header .logout:hover {
+    background-color: #c0392b;
+    transition: 0.5s;
+}
+.section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px; 
+    margin-top: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 24px;
+}
+
+/* Section */
+.section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.section h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+.section h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+/* Course Management Links */
+.course-management {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.course-management a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.course-management a:hover {
+    background-color: #2980b9;
+}
+
+/* Assignments*/
+.assignments-section{
+    margin-top: 24px;
+}
+
+.assignment-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.assignment-item{
+    background-color: #e0dcdc;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.assignment-item h4 {
+    font-size: 16px;
+    color: #333;
+}
+
+.assignment-item .due-date {
+    font-size: 14px;
+    color: #5c5b5b;
+    margin-top: 8px;
+}
+
+.no-due-date {
+    color: #e74c3c;
+}
+
+
+
+
+/*Learning Material*/
+.materials-section {
+    margin-top: 24px;
+}
+
+.material-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.material-item {
+    background-color: #e0dcdc;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.material-content span {
+    font-size: 16px;
+    color: #333;
+    word-break: break-word;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.material-item .description, .uploaded{
+    font-size: 14px;
+    color: #5c5b5b;
+    margin-top: 8px;
+}
+
+.material-item .uploaded{
+    font-size: 14px;
+    color: #5c5b5b;
+    margin-top: 8px;
+}
+
+.material-actions {
+    margin-top: auto;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+/* Assessment */
+.assessment-actions {
+    margin-top: auto;
+}   
+
+.assessment-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.assessment-item {
+    background-color: #e0dcdc;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.assessment-content span {
+    font-size: 16px;
+    color: #333;
+    word-break: break-word;
+    display: block;
+    margin-bottom: 10px;
+}
+.assessment-item .due-date, .total-points {
+    font-size: 14px;
+    color: #5c5b5b;
+    margin-top: 8px;
+}
+.assessment-actions {
+    margin-top: auto;
+}
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+
+    .course-management {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

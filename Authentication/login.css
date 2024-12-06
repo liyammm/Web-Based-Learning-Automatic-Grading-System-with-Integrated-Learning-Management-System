@@ -1,0 +1,138 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ececec;
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+/* Centered Text Style */
+.center-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: #449DD1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Container that holds both boxes */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Box Area */
+.box-area {
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Left Box (Image) */
+.left-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.left-box img {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Right Box (Form) */
+.right-box {
+    flex: 1;
+    padding: 40px 30px;
+}
+
+/* Form Fields Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 14px 16px; /* Larger padding for a more comfortable input */
+    font-size: 16px;
+    border-radius: 12px; /* Rounded corners */
+    border: 1px solid #ddd;
+    margin-top: 8px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: #449DD1; /* Highlight border on focus */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #449DD1;
+    border: none;
+    border-radius: 12px; /* Rounded corners */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #357ab7; /* Darker blue on hover */
+}
+
+/* Placeholder styling */
+::placeholder {
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .box-area {
+        flex-direction: column; /* Stack the boxes vertically on smaller screens */
+    }
+
+    .left-box {
+        height: 250px;
+        padding: 10px;
+    }
+
+    .right-box {
+        padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select {
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+    }
+}

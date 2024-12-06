@@ -1,0 +1,172 @@
+CREATE TABLE users (
+  user_id int(11) NOT NULL AUTO_INCREMENT,
+  first_name varchar(50) NOT NULL,
+  last_name varchar(50) NOT NULL,
+  username varchar(50) NOT NULL,
+  email varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  role enum('teacher','student') NOT NULL,
+  created_at timestamp NOT NULL DEFAULT current_timestamp(),
+  reset_code varchar(6) DEFAULT NULL,
+  reset_expiry datetime DEFAULT NULL,
+  PRIMARY KEY (user_id)
+);
+
+
+-- Table structure for table courses
+CREATE TABLE courses (
+  course_id int(11) NOT NULL AUTO_INCREMENT,
+  course_name varchar(100) NOT NULL,
+  teacher_id int(11) NOT NULL,
+  assignment_weight decimal(5,2) NOT NULL,
+  quiz_weight decimal(5,2) NOT NULL,
+  exam_weight decimal(5,2) NOT NULL,
+  PRIMARY KEY (course_id),
+  FOREIGN KEY (teacher_id) REFERENCES users (user_id) ON DELETE CASCADE
+); 
+
+
+CREATE TABLE student_courses (
+  enrollment_id int(11) NOT NULL AUTO_INCREMENT,
+  course_id int(11) NOT NULL,
+  student_id int(11) NOT NULL,
+  enrollment_date timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (enrollment_id),
+  FOREIGN KEY (course_id) REFERENCES courses (course_id) ON DELETE CASCADE,
+  FOREIGN KEY (student_id) REFERENCES users (user_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE learning_materials (
+  learning_materials_id int(11) NOT NULL AUTO_INCREMENT,
+  course_id int(11) NOT NULL,
+  file_name varchar(255) NOT NULL,
+  description text DEFAULT NULL,
+  file_data longblob DEFAULT NULL,
+  upload_date timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (learning_materials_id),
+  FOREIGN KEY (course_id) REFERENCES courses (course_id) ON DELETE CASCADE
+);
+
+CREATE TABLE assignments (
+  assignment_id INT NOT NULL AUTO_INCREMENT,
+  course_id INT NOT NULL,
+  assignment_name VARCHAR(255) NOT NULL,
+  assignment_type ENUM('text','file') NOT NULL,
+  description TEXT DEFAULT NULL,
+  file_data LONGBLOB DEFAULT NULL,
+  file_name VARCHAR(255) DEFAULT NULL,
+  due_date DATETIME NOT NULL,
+  upload_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  total_points DECIMAL(5,2) NOT NULL, -- Changed from assignment_grade to total_points for clarity
+  PRIMARY KEY (assignment_id),
+  FOREIGN KEY (course_id) REFERENCES courses (course_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE assignment_submissions (
+    submission_id INT AUTO_INCREMENT PRIMARY KEY,
+    assignment_id INT NOT NULL,
+    student_id INT NOT NULL,
+    submission_text TEXT,
+    file_name VARCHAR(255),
+    file_data LONGBLOB,
+    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    grade DECIMAL(5,2),
+    feedback TEXT,
+    FOREIGN KEY (assignment_id) REFERENCES assignments(assignment_id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+
+
+
+-- Table for assessments (quizzes/exams)
+CREATE TABLE assessments (
+    assessment_id INT NOT NULL AUTO_INCREMENT,
+    course_id INT NOT NULL,
+    assessment_name VARCHAR(255) NOT NULL,
+    assessment_type ENUM('quiz', 'exam') NOT NULL,
+    description TEXT DEFAULT NULL,
+    due_date DATETIME NOT NULL,
+    duration_minutes INT NOT NULL,
+    total_points DECIMAL(5,2) NULL,
+    upload_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    question_count INT NOT NULL,
+    PRIMARY KEY (assessment_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE
+);
+
+-- Table for assessment questions
+CREATE TABLE assessment_questions (
+    question_id INT NOT NULL AUTO_INCREMENT,
+    assessment_id INT NOT NULL,
+    question_text TEXT NOT NULL,
+    question_type ENUM('multiple_choice', 'identification') NOT NULL,
+    points DECIMAL(5,2) NOT NULL,
+    question_order INT NOT NULL,
+    PRIMARY KEY (question_id),
+    FOREIGN KEY (assessment_id) REFERENCES assessments(assessment_id) ON DELETE CASCADE
+);
+
+-- Table for multiple choice options
+CREATE TABLE question_options (
+    option_id INT NOT NULL AUTO_INCREMENT,
+    question_id INT NOT NULL,
+    option_text TEXT NOT NULL,
+    is_correct BOOLEAN NOT NULL,
+    option_order INT NOT NULL,
+    PRIMARY KEY (option_id),
+    FOREIGN KEY (question_id) REFERENCES assessment_questions(question_id) ON DELETE CASCADE
+);
+
+-- Table for identification answers
+CREATE TABLE question_answers (
+    answer_id INT NOT NULL AUTO_INCREMENT,
+    question_id INT NOT NULL,
+    correct_answer TEXT NOT NULL,
+    PRIMARY KEY (answer_id),
+    FOREIGN KEY (question_id) REFERENCES assessment_questions(question_id) ON DELETE CASCADE
+);
+
+-- Table for student assessment attempts
+CREATE TABLE assessment_attempts (
+    attempt_id INT NOT NULL AUTO_INCREMENT,
+    assessment_id INT NOT NULL,
+    student_id INT NOT NULL,
+    start_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    end_time TIMESTAMP NULL,
+    score DECIMAL(5,2) DEFAULT NULL,
+    status ENUM('in_progress', 'completed', 'timed_out') NOT NULL DEFAULT 'in_progress',
+    PRIMARY KEY (attempt_id),
+    FOREIGN KEY (assessment_id) REFERENCES assessments(assessment_id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+-- Table for student responses
+CREATE TABLE student_responses (
+    response_id INT NOT NULL AUTO_INCREMENT,
+    attempt_id INT NOT NULL,
+    question_id INT NOT NULL,
+    selected_option_id INT DEFAULT NULL,
+    text_response TEXT DEFAULT NULL,
+    is_correct BOOLEAN DEFAULT NULL,
+    points_earned DECIMAL(5,2) DEFAULT NULL,
+    PRIMARY KEY (response_id),
+    FOREIGN KEY (attempt_id) REFERENCES assessment_attempts(attempt_id) ON DELETE CASCADE,
+    FOREIGN KEY (question_id) REFERENCES assessment_questions(question_id) ON DELETE CASCADE,
+    FOREIGN KEY (selected_option_id) REFERENCES question_options(option_id) ON DELETE SET NULL
+);
+
+CREATE TABLE `final_grades` (
+  `final_grade_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `assignment_average` decimal(5,2) NOT NULL,
+  `quiz_average` decimal(5,2) NOT NULL,
+  `exam_average` decimal(5,2) NOT NULL,
+  `final_grade` decimal(5,2) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+)
+

@@ -34,13 +34,21 @@ class Crud
         return $stmt->execute();
     }
 
+    public function updateRecord($query, $params, $paramTypes){
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param($paramTypes, ...$params);
+        return $stmt->execute();
+    }
+
     public function deleteRecord($query, $params, $paramTypes)
     {
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param($paramTypes, ...$params);
         return $stmt->execute();
     }
+
 }
+
     
 ?>
 
