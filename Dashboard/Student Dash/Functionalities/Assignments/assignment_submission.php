@@ -25,6 +25,7 @@ while ($row = $courses->fetch_assoc()) {
 
 // Fetch the specific assignment details
 $assignmentDetails = $assignment->getAssignmentById($assignment_id);
+$course_id = $assignmentDetails['course_id'];
 
 if (!$assignmentDetails) {
     header('Location: ../../index.php');
@@ -56,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_assignment']))
     }
     
     // Redirect back to student dashboard after submission
-    header('Location: ../../index.php');
+    header('Location: ../../index.php?course_id=' . htmlspecialchars($course_id));
     exit();
 }
 
@@ -128,7 +129,7 @@ $existingSubmission = $assignment->getStudentSubmission($assignment_id, $user_id
                             <button type="submit" name="submit_assignment" class="submit-btn">
                                 <?php echo $existingSubmission ? 'Update Submission' : 'Submit Assignment'; ?>
                             </button>
-                            <a href="../../../Student Dash/index.php" class="cancel-btn">Cancel</a>
+                            <a href="../../../Student Dash/index.php?course_id=<?php echo htmlspecialchars($course_id); ?>" class="cancel-btn">Cancel</a>
                         </div>
                     </form>
                 </div>
